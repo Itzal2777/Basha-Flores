@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Para Basha 💛</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background: #fffbe6;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Arial', sans-serif;
+    }
+
+    h1 {
+      position: absolute;
+      bottom: 40%;
+      font-size: 3em;
+      color: #e6b800;
+      text-shadow: 2px 2px 8px #888;
+      opacity: 0;
+      animation: aparecer 3s ease-in-out forwards;
+      animation-delay: 5s;
+    }
+
+    @keyframes aparecer {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .flor {
+      position: absolute;
+      top: -50px;
+      font-size: 2em;
+      animation: caer linear infinite;
+    }
+
+    @keyframes caer {
+      to {
+        transform: translateY(110vh) rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>🌻 PARA TI BASHA 🌻</h1>
+
+  <script>
+    const flores = ["🌼", "💛", "🌻"];
+    function crearFlor() {
+      const flor = document.createElement("div");
+      flor.classList.add("flor");
+      flor.textContent = flores[Math.floor(Math.random() * flores.length)];
+      flor.style.left = Math.random() * 100 + "vw";
+      flor.style.animationDuration = (Math.random() * 3 + 3) + "s";
+      document.body.appendChild(flor);
+
+      setTimeout(() => {
+        flor.remove();
+      }, 6000);
+    }
+
+    setInterval(crearFlor, 300);
+  </script>
+</body>
+</html>
